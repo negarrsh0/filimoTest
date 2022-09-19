@@ -25,7 +25,7 @@ object AppModule {
     @Provides
     fun provideApiInterface(): ApiInterface =
         Retrofit.Builder()
-            .baseUrl(Constance.BASE_URL)
+            .baseUrl(provideBaseUrl())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
